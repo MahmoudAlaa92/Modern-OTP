@@ -8,6 +8,7 @@
 import SwiftUI
 
 /// Configuration for the animated particle background
+@MainActor
 public struct AnimatedBackgroundConfiguration {
     
     /// Number of particles to display

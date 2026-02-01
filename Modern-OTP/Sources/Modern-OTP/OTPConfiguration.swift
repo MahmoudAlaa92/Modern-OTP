@@ -8,6 +8,7 @@
 import SwiftUI
 
 /// Configuration for customizing the OTP input appearance and behavior
+@MainActor
 public struct OTPConfiguration {
     
     // MARK: - Cell Appearance

@@ -58,7 +58,10 @@ public struct ModernOTPView: View {
         ZStack {
             // Hidden text field to capture input
             TextField("", text: $value)
+                // Only available on non-macOS Apple platforms
+                #if os(iOS) || os(tvOS) || os(visionOS) || os(watchOS)
                 .keyboardType(.numberPad)
+                #endif
                 .focused($focusedField)
                 .opacity(0.001)
                 .onChange(of: value) { _, newValue in
@@ -95,12 +98,50 @@ public struct ModernOTPView: View {
             .overlay(alignment: .center) {
                 // Success checkmark overlay
                 if isSuccess {
-                    Image(systemName: configuration.successIconName)
+                    let image = Image(systemName: configuration.successIconName)
                         .font(configuration.successIconFont)
                         .foregroundStyle(configuration.successIconColor)
-                        .symbolEffect(.drawOn, isActive: !isDone)
+                    
+                    // Prefer the newer symbol effect when truly available; otherwise fallback
+                    #if os(iOS) || os(tvOS) || os(visionOS) || os(watchOS)
+                    if #available(iOS 18, tvOS 18, watchOS 11, visionOS 2, *) {
+                        image
+                            .symbolEffect(.drawOn, isActive: !isDone)
+                            .transition(.opacity)
+                            .animation(.linear(duration: configuration.successIconDrawDuration), value: isDone)
+                    } else {
+                        image
+                            .transition(.opacity)
+                            .scaleEffect(isDone ? 1.0 : 0.8)
+                            .opacity(isDone ? 1.0 : 0.0)
+                            .animation(.linear(duration: configuration.successIconDrawDuration), value: isDone)
+                    }
+                    #elseif os(macOS)
+                    // On macOS, .drawOn requires a newer SDK than your minimum. Guard strictly.
+                    // If your SDK exposes a different version (e.g., "macOS 26"), keep this fallback.
+                    if #available(macOS 15.4, *) {
+                        if #available(macOS 26.0, *) {
+                            image
+                                .symbolEffect(.drawOn, isActive: !isDone)
+                                .transition(.opacity)
+                                .animation(.linear(duration: configuration.successIconDrawDuration), value: isDone)
+                        } else {
+                            // Fallback on earlier versions
+                        }
+                    } else {
+                        image
+                            .transition(.opacity)
+                            .scaleEffect(isDone ? 1.0 : 0.8)
+                            .opacity(isDone ? 1.0 : 0.0)
+                            .animation(.linear(duration: configuration.successIconDrawDuration), value: isDone)
+                    }
+                    #else
+                    image
                         .transition(.opacity)
+                        .scaleEffect(isDone ? 1.0 : 0.8)
+                        .opacity(isDone ? 1.0 : 0.0)
                         .animation(.linear(duration: configuration.successIconDrawDuration), value: isDone)
+                    #endif
                 }
             }
         }

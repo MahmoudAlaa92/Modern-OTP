@@ -8,6 +8,7 @@
 import SwiftUI
 
 /// Configuration for the OTP container view appearance
+@MainActor
 public struct OTPContainerConfiguration {
     
     // MARK: - Background
