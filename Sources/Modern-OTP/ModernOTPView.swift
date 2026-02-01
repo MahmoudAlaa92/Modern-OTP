@@ -103,8 +103,7 @@ public struct ModernOTPView: View {
                         .foregroundStyle(configuration.successIconColor)
                     
                     // Prefer the newer symbol effect when truly available; otherwise fallback
-                    #if os(iOS) || os(tvOS) || os(visionOS) || os(watchOS)
-                    if #available(iOS 18, tvOS 18, watchOS 11, visionOS 2, *) {
+                    if #available(iOS 18, tvOS 18, watchOS 11, visionOS 2, *, macOS 26.0, *) {
                         image
                             .symbolEffect(.drawOn, isActive: !isDone)
                             .transition(.opacity)
@@ -116,7 +115,6 @@ public struct ModernOTPView: View {
                             .opacity(isDone ? 1.0 : 0.0)
                             .animation(.linear(duration: configuration.successIconDrawDuration), value: isDone)
                     }
-                    #elseif os(macOS)
                     // On macOS, .drawOn requires a newer SDK than your minimum. Guard strictly.
                     // If your SDK exposes a different version (e.g., "macOS 26"), keep this fallback.
                     if #available(macOS 15.4, *) {
@@ -135,13 +133,11 @@ public struct ModernOTPView: View {
                             .opacity(isDone ? 1.0 : 0.0)
                             .animation(.linear(duration: configuration.successIconDrawDuration), value: isDone)
                     }
-                    #else
                     image
                         .transition(.opacity)
                         .scaleEffect(isDone ? 1.0 : 0.8)
                         .opacity(isDone ? 1.0 : 0.0)
                         .animation(.linear(duration: configuration.successIconDrawDuration), value: isDone)
-                    #endif
                 }
             }
         }
