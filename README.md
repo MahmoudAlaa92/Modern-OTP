@@ -24,7 +24,8 @@ A beautiful, customizable OTP (One-Time Password) input component for SwiftUI wi
 Add ModernOTP to your project using Xcode:
 
 1. File → Add Package Dependencies
-2. Enter package URL: `https://github.com/yourusername/ModernOTP.git`
+2. Enter package URL: `https://github.com/MahmoudAlaa92/Modern-OTP.git`
+
 3. Select version/branch
 4. Add to your target
 
@@ -32,7 +33,7 @@ Or add it to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/yourusername/ModernOTP.git", from: "1.0.0")
+    .package(url: "https://github.com/MahmoudAlaa92/Modern-OTP.git", from: "1.0.1")
 ]
 ```
 
