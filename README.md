@@ -3,7 +3,7 @@
 A beautiful, customizable OTP (One-Time Password) input component for SwiftUI with an animated 3D particle background.
 
 <p align="center">
-  <img src="https://img.shields.io/badge/platform-iOS%2017%2B%20%7C%20macOS%2015%2B-blue" alt="Platform">
+  <img src="https://img.shields.io/badge/platform-iOS%2018%2B%20%7C%20macOS%2015%2B-blue" alt="Platform">
   <img src="https://img.shields.io/badge/Swift-5.9+-orange" alt="Swift Version">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
 </p>
@@ -24,7 +24,8 @@ A beautiful, customizable OTP (One-Time Password) input component for SwiftUI wi
 Add ModernOTP to your project using Xcode:
 
 1. File → Add Package Dependencies
-2. Enter package URL: `https://github.com/yourusername/ModernOTP.git`
+2. Enter package URL: `https://github.com/MahmoudAlaa92/Modern-OTP.git`
+
 3. Select version/branch
 4. Add to your target
 
@@ -32,7 +33,7 @@ Or add it to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/yourusername/ModernOTP.git", from: "1.0.0")
+    .package(url: "https://github.com/MahmoudAlaa92/Modern-OTP.git", from: "1.0.1")
 ]
 ```
 
