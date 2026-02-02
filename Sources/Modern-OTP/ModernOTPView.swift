@@ -98,32 +98,10 @@ public struct ModernOTPView: View {
             .overlay(alignment: .center) {
                 // Success checkmark overlay
                 if isSuccess {
-                    let image = Image(systemName: configuration.successIconName)
+                    Image(systemName: configuration.successIconName)
                         .font(configuration.successIconFont)
                         .foregroundStyle(configuration.successIconColor)
                     
-                    #if os(macOS)
-                    // Fallback for macOS due to compiler issue
-                    image
-                        .transition(.opacity)
-                        .scaleEffect(isDone ? 1.0 : 0.8)
-                        .opacity(isDone ? 1.0 : 0.0)
-                        .animation(.linear(duration: configuration.successIconDrawDuration), value: isDone)
-                    #else
-                    if #available(iOS 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *) {
-                        image
-                            .symbolEffect(.drawOn, isActive: !isDone)
-                            .transition(.opacity)
-                            .animation(.linear(duration: configuration.successIconDrawDuration), value: isDone)
-                    } else {
-                        image
-                            .transition(.opacity)
-                            .scaleEffect(isDone ? 1.0 : 0.8)
-                            .opacity(isDone ? 1.0 : 0.0)
-                            .animation(.linear(duration: configuration.successIconDrawDuration), value: isDone)
-                    }
-                    #endif
-                    image
                         .transition(.opacity)
                         .scaleEffect(isDone ? 1.0 : 0.8)
                         .opacity(isDone ? 1.0 : 0.0)
