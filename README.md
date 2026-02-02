@@ -113,8 +113,8 @@ let containerConfig = OTPContainerConfiguration(
     containerCornerRadius: 32,
     borderColor: .blue,
     titleText: "Verify Your Identity",
-    subtitleText: "Enter the 6-digit code we sent to your device.",
     titleFont: .largeTitle.bold(),
+    subtitleText: "Enter the 6-digit code we sent to your device.",
     showAnimatedBackground: true
 )
 
