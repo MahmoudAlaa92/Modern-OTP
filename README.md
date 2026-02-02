@@ -3,7 +3,7 @@
 A beautiful, customizable OTP (One-Time Password) input component for SwiftUI with an animated 3D particle background.
 
 <p align="center">
-  <img src="https://img.shields.io/badge/platform-iOS%2017%2B%20%7C%20macOS%2015%2B-blue" alt="Platform">
+  <img src="https://img.shields.io/badge/platform-iOS%2018%2B%20%7C%20macOS%2015%2B-blue" alt="Platform">
   <img src="https://img.shields.io/badge/Swift-5.9+-orange" alt="Swift Version">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
 </p>
