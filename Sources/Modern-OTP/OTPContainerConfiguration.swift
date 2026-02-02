@@ -81,8 +81,8 @@ public struct OTPContainerConfiguration {
     // MARK: - Initializer
     
     public init(
-        backgroundColor: Color = .primary,
-        surfaceColor: Color = .white,
+        backgroundColor: Color = .white,
+        surfaceColor: Color = Color.gray.opacity(0.1),
         containerCornerRadius: CGFloat = 24,
         containerHorizontalPadding: CGFloat = 20,
         containerHeight: CGFloat = 455,
@@ -91,10 +91,10 @@ public struct OTPContainerConfiguration {
         borderWidth: CGFloat = 2,
         titleText: String = "Enter the code",
         titleFont: Font = .title,
-        titleColor: Color = .primary,
+        titleColor: Color = .orange,
         subtitleText: String = "We sent you a code to your email, please enter to verify your address.",
         subtitleFont: Font = .body,
-        subtitleColor: Color = .secondary,
+        subtitleColor: Color = .gray,
         subtitleHorizontalPadding: CGFloat = 20,
         showAnimatedBackground: Bool = true,
         animatedBackgroundScale: CGFloat = 0.9,

@@ -51,8 +51,8 @@ public struct AnimatedBackgroundConfiguration {
     
     public init(
         particleCount: Int = 200,
-        lightModeColor: Color = .white,
-        darkModeColor: Color = .black,
+        lightModeColor: Color = .orange,
+        darkModeColor: Color = .orange,
         particleOpacity: Double = 0.85,
         rotationSpeed: Double = 0.5,
         minFontSize: CGFloat = 1.0,
