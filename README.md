@@ -57,7 +57,7 @@ dependencies: [
 ### Basic Usage
 ```swift
 import SwiftUI
-import ModernOTP
+import Modern_OTP
 
 struct ContentView: View {
     @State private var isSuccess = false
@@ -76,7 +76,7 @@ struct ContentView: View {
 If you want just the OTP input without the container:
 ```swift
 import SwiftUI
-import ModernOTP
+import Modern_OTP
 
 struct ContentView: View {
     @State private var isSuccess = false
