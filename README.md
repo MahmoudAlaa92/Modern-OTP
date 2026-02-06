@@ -3,10 +3,27 @@
 A beautiful, customizable OTP (One-Time Password) input component for SwiftUI with an animated 3D particle background.
 
 <p align="center">
-  <img src="https://img.shields.io/badge/platform-iOS%2018%2B%20%7C%20macOS%2015%2B-blue" alt="Platform">
-  <img src="https://img.shields.io/badge/Swift-5.9+-orange" alt="Swift Version">
+  <img src="https://img.shields.io/badge/platform-iOS%2017%2B%20%7C%20macOS%2014%2B-blue" alt="Platform">
+  <img src="https://img.shields.io/badge/Swift-6.0+-orange" alt="Swift Version">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
 </p>
+
+<p align="center">
+  <img 
+    src="https://github.com/user-attachments/assets/041979de-d31f-4414-9332-1152861244cc"
+    width="200"
+    height="300"
+    alt="OTP Demo 1"
+  />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img 
+    src="https://github.com/user-attachments/assets/6653d812-5dcf-4811-b8e6-52c810ebf50b"
+    width="200"
+    height="300"
+    alt="OTP Demo 2"
+  />
+</p>
+
 
 ## Features
 
@@ -25,12 +42,10 @@ Add ModernOTP to your project using Xcode:
 
 1. File → Add Package Dependencies
 2. Enter package URL: `https://github.com/MahmoudAlaa92/Modern-OTP.git`
-
 3. Select version/branch
 4. Add to your target
 
 Or add it to your `Package.swift`:
-
 ```swift
 dependencies: [
     .package(url: "https://github.com/MahmoudAlaa92/Modern-OTP.git", from: "1.0.1")
@@ -40,7 +55,6 @@ dependencies: [
 ## Quick Start
 
 ### Basic Usage
-
 ```swift
 import SwiftUI
 import ModernOTP
@@ -60,7 +74,6 @@ struct ContentView: View {
 ### OTP Input Only
 
 If you want just the OTP input without the container:
-
 ```swift
 import SwiftUI
 import ModernOTP
@@ -82,7 +95,6 @@ struct ContentView: View {
 ## Customization
 
 ### OTP Input Styling
-
 ```swift
 let otpConfig = OTPConfiguration(
     cellWidth: 60,
@@ -106,7 +118,6 @@ OTPContainerView(
 ```
 
 ### Container Styling
-
 ```swift
 let containerConfig = OTPContainerConfiguration(
     backgroundColor: .black,
@@ -128,12 +139,11 @@ OTPContainerView(
 ```
 
 ### Animated Background
-
 ```swift
 let animationConfig = AnimatedBackgroundConfiguration(
     particleCount: 300,
-    lightModeColor: .white,
-    darkModeColor: .cyan,
+    lightModeColor: .orange,
+    darkModeColor: .orange,
     particleOpacity: 0.7,
     rotationSpeed: 1.0,
     useNumbers: false,
@@ -148,7 +158,6 @@ OTPContainerView(
 ```
 
 ### Callbacks
-
 ```swift
 OTPContainerView(
     expectedCode: "1234",
@@ -176,13 +185,13 @@ OTPContainerView(
 | `cellSpacing` | `CGFloat` | `12` | Spacing between cells |
 | `normalBorderColor` | `Color` | `.gray.opacity(0.3)` | Border color for inactive cells |
 | `activeBorderColor` | `Color` | `.orange` | Border color for active cell |
-| `successBorderColor` | `Color` | `.green` | Border color on success |
+| `successBorderColor` | `Color` | `.orange` | Border color on success |
 | `errorBorderColor` | `Color` | `.red` | Border color on error |
-| `textColor` | `Color` | `.primary` | Color of entered digits |
+| `textColor` | `Color` | `.gray` | Color of entered digits |
 | `caretColor` | `Color` | `.primary` | Color of blinking caret |
 | `digitFont` | `Font` | `.title` | Font for digits |
 | `successIconName` | `String` | `"checkmark"` | SF Symbol for success |
-| `successIconColor` | `Color` | `.green` | Color of success icon |
+| `successIconColor` | `Color` | `.orange` | Color of success icon |
 | `successIconFont` | `Font` | `.system(size: 30)` | Font for success icon |
 | `errorFlashDuration` | `Double` | `1.0` | Duration of error flash |
 
@@ -190,15 +199,17 @@ OTPContainerView(
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
-| `backgroundColor` | `Color` | `.primary` | Screen background color |
-| `surfaceColor` | `Color` | `.white` | Container card color |
+| `backgroundColor` | `Color` | `.white` | Screen background color |
+| `surfaceColor` | `Color` | `.gray.opacity(0.1)` | Container card color |
 | `containerCornerRadius` | `CGFloat` | `24` | Container corner radius |
 | `borderColor` | `Color` | `.orange` | Container border color |
 | `showBorder` | `Bool` | `true` | Show container border |
 | `titleText` | `String` | `"Enter the code"` | Main title text |
-| `subtitleText` | `String` | `"We sent you..."` | Description text |
+| `subtitleText` | `String` | `"We sent you a code..."` | Description text |
 | `titleFont` | `Font` | `.title` | Title font |
+| `titleColor` | `Color` | `.orange` | Title color |
 | `subtitleFont` | `Font` | `.body` | Subtitle font |
+| `subtitleColor` | `Color` | `.gray` | Subtitle color |
 | `showAnimatedBackground` | `Bool` | `true` | Show particle animation |
 
 ### AnimatedBackgroundConfiguration
@@ -206,8 +217,8 @@ OTPContainerView(
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
 | `particleCount` | `Int` | `200` | Number of particles |
-| `lightModeColor` | `Color` | `.white` | Particle color (light) |
-| `darkModeColor` | `Color` | `.black` | Particle color (dark) |
+| `lightModeColor` | `Color` | `.orange` | Particle color (light) |
+| `darkModeColor` | `Color` | `.orange` | Particle color (dark) |
 | `particleOpacity` | `Double` | `0.85` | Particle opacity |
 | `rotationSpeed` | `Double` | `0.5` | Rotation speed |
 | `useNumbers` | `Bool` | `true` | Use numbers (0-9) |
@@ -216,7 +227,6 @@ OTPContainerView(
 ## Advanced Examples
 
 ### Custom Theme
-
 ```swift
 struct CustomOTPView: View {
     @State private var isSuccess = false
@@ -265,7 +275,6 @@ struct CustomOTPView: View {
 ```
 
 ### Minimal Style
-
 ```swift
 let otpConfig = OTPConfiguration(
     normalBorderColor: .gray.opacity(0.2),
@@ -306,9 +315,9 @@ Standalone OTP input component without container or background.
 
 ## Requirements
 
-- iOS 17.0+ / macOS 14.0+
-- Swift 5.9+
-- Xcode 15.0+
+- **iOS 17.0+** / **macOS 14.0+**
+- **Swift 6.0+**
+- **Xcode 16.0+**
 
 ## License
 
@@ -316,12 +325,27 @@ ModernOTP is available under the MIT license. See LICENSE for details.
 
 ## Author
 
-Mahmoud Alaa
+Mahmoud Alaa  
+GitHub: [@MahmoudAlaa92](https://github.com/MahmoudAlaa92)
 
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
 ## Support
 
-If you have any questions or issues, please open an issue on GitHub.
+If you have any questions or issues, please [open an issue](https://github.com/MahmoudAlaa92/Modern-OTP/issues) on GitHub.
+
+## Acknowledgments
+
+⭐ If you find this package useful, please star the repository!
+
+---
+
+Made with ❤️ by Mahmoud Alaa
