@@ -5,6 +5,20 @@ All notable changes to ModernOTP will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2026-02-06
+Added
+
+SMS Auto-Read Support: Added .textContentType(.oneTimeCode) for automatic OTP detection from SMS on iOS
+OTP codes are now automatically detected and filled from SMS messages (iOS 12+)
+No additional configuration needed - works out of the box!
+
+Technical Details
+
+Single line addition enables iOS built-in SMS OTP detection
+Works with standard SMS formats (e.g., "Your code is 1234")
+No permissions required - uses iOS native functionality
+Only active on iOS (not macOS, tvOS, etc.)
+
 ## [1.0.1] - 2026-02-02
 
 ### Changed

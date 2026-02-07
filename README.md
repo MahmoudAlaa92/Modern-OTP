@@ -27,12 +27,17 @@ A beautiful, customizable OTP (One-Time Password) input component for SwiftUI wi
 
 ## Features
 
+📱 SMS Auto-Read - Automatically detects OTP codes from SMS (no setup needed!)
 ✨ **Highly Customizable** - Configure colors, fonts, animations, and more  
 🎨 **Beautiful Animations** - Smooth transitions and 3D particle effects  
 📱 **iOS & macOS Support** - Works on both platforms  
 🎯 **Easy Integration** - Simple API with sensible defaults  
 ⚡ **Lightweight** - No external dependencies  
 🔒 **Secure Input** - Number-only keyboard with validation
+
+## What's New in 1.0.2
+SMS Auto-Read is now built-in! 🎉
+OTP codes are automatically detected from SMS messages on iOS - no configuration needed. Just use the component and it works!
 
 ## Installation
 

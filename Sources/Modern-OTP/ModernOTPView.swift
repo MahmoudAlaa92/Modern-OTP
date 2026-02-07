@@ -58,9 +58,9 @@ public struct ModernOTPView: View {
         ZStack {
             // Hidden text field to capture input
             TextField("", text: $value)
-                // Only available on non-macOS Apple platforms
-                #if os(iOS) || os(tvOS) || os(visionOS) || os(watchOS)
+                #if os(iOS)
                 .keyboardType(.numberPad)
+                .textContentType(.oneTimeCode)  
                 #endif
                 .focused($focusedField)
                 .opacity(0.001)
@@ -101,7 +101,6 @@ public struct ModernOTPView: View {
                     Image(systemName: configuration.successIconName)
                         .font(configuration.successIconFont)
                         .foregroundStyle(configuration.successIconColor)
-                    
                         .transition(.opacity)
                         .scaleEffect(isDone ? 1.0 : 0.8)
                         .opacity(isDone ? 1.0 : 0.0)
@@ -193,15 +192,4 @@ private struct OTPCell: View {
     private var strokeWidth: CGFloat {
         (isErrorFlash || isSuccess || isActive) ? configuration.highlightedBorderWidth : 0
     }
-}
-
-// MARK: - Preview
-
-#Preview {
-    ModernOTPView(
-        digitCount: 4,
-        expectedCode: "1234",
-        isSuccess: .constant(false)
-    )
-    .padding()
 }
